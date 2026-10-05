@@ -71,6 +71,20 @@ Audio ─┬─ wav2vec2-base (frozen) → PCA-64
 - Ordinal classification, isotonic calibration, learned stacking, residual
   correction models: all neutral or worse than the plain blend — dropped.
 
+## Reproducing
+
+The notebook runs on Kaggle CPU. It expects three inputs mounted under
+`/kaggle/input`:
+
+1. The competition data (`shl-hiring-assessment-2026`)
+2. `tejasv002/shl-model-artifacts` — precomputed embeddings, handcrafted features,
+   perplexity scores, and text-side predictions
+3. `tejasv002/shl-transcripts` — Whisper transcripts (`transcripts.jsonl`)
+
+Executing all cells trains both ensembles and writes `submission.csv`.
+The linked Kaggle kernel that produced the scored submission is
+[`tejasv002/shl-combined-submission`](https://www.kaggle.com/code/tejasv002/shl-combined-submission).
+
 ## Dependencies
 
 See `requirements.txt`: `numpy`, `pandas`, `scikit-learn`, `lightgbm`, `pyarrow`.
